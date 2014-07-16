@@ -1,0 +1,27 @@
+<?php
+
+function uc_color_attribute_schema(){
+  $schema['uc_color_attribute'] = array(
+    'description' => 'Stores Color Codes',
+    'fields' => array(
+      'aid' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+      ),
+      'oid' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+      ),
+      'hexValue' => array(
+        'type' => 'varchar',
+        'length' => 7,
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('oid'), 
+  );
+  return $schema;
+}
+
+

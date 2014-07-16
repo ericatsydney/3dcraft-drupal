@@ -1,0 +1,30 @@
+div.colors-background {
+	margin: 5px 0px;
+	background: none;
+	min-height: 25px;
+}
+
+div.colors-color {
+	cursor: pointer;
+	cursor: hand;
+	height: 25px;
+	width: 25px;
+	float: left;
+	margin: 4px;
+    border-radius: 2px;
+    -o-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+
+div.colors-color.active {
+	border: 2px solid #666666;
+	height: 29px;
+	width: 29px;
+	margin: 2px;
+}
+
+div.txtmsg {
+	clear: both;
+}

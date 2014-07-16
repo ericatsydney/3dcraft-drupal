@@ -1,0 +1,7 @@
+name = UC Color Attribute
+description = Ubercart Hex Value Attribute, updated by StirStudios
+dependencies[] = uc_cart
+dependencies[] = uc_attribute
+dependencies[] = jquery_colorpicker
+package = Ubercart - extra
+core = 7.x

@@ -1,0 +1,148 @@
+<?php
+/* Ubercart Hex Value Attribute, created by DancePlug */
+
+/* Perms Hook */
+function uc_color_attribute_permission(){
+  return array(
+    'Administer UC Color Attribute page' => array(
+      'title' => t('Administer UC Color Attribute'), 
+      'description' => t('Perform administration tasks for the UC Color Attribute module.'),
+    ),
+  );
+}
+
+/* Menu Hook */
+function uc_color_attribute_menu(){
+	$items = array();
+	
+	$items['admin/store/products/attributes/uc_color_attribute'] = array(
+   		'page callback' => 'drupal_get_form',
+		'page arguments' => array('uc_color_attribute_admin_form'),
+       	'type' => MENU_LOCAL_ACTION,
+       	'title' => t('Manage UC Color Attribute'),
+       	'access arguments' => array('Administer UC Color Attribute page'),
+    );
+	
+	return $items;
+}
+
+/* Admin form */
+function uc_color_attribute_admin_form($form, &$form_state){
+    $options = array('_none' => '');
+    
+    $attributes = uc_attribute_load_multiple();
+    
+    if($attributes && is_array($attributes)){
+        foreach($attributes as $attr){
+            $options[$attr->name] = $attr->name;
+        }
+    }
+    
+    $form['colorAttr'] = array(
+        '#title' => t('Please choose the relevant color attribute.'),
+        '#description' => t('Choosing an attribute from the dropdown list will add a color picker to the attributes option form.'),
+        '#type' => 'select',
+        '#default_value' => variable_get('uc_color_attribute_name',''),
+        '#options' => $options,
+    );
+    
+    $form['save'] = array(
+        '#value' => t('Save'),
+        '#type' => 'submit',
+    );
+    return $form;
+}
+
+/* Admin form submit handler */
+function uc_color_attribute_admin_form_submit($form, &$form_state){
+    $colorAttr = $form_state['input']['colorAttr'];
+    
+    if(empty($colorAttr) OR $colorAttr == '_none'){
+        //Remove the current colorAttr
+        variable_set('uc_color_attribute_name','');
+    }else{
+        //Change the current colorAttr
+        variable_set('uc_color_attribute_name',$colorAttr);
+    }
+	
+    drupal_set_message('You have updated the UC Color Attribute for this store.');
+    
+	return;
+}
+
+/* Form Alter Hook */
+function uc_color_attribute_form_alter(&$form, &$form_state, $form_id){
+    if($form_id == "uc_attribute_option_form"){
+		
+            if($form_state['build_info']['args'][0]->name == variable_get('uc_color_attribute_name','')){
+                /* We have the Colour Form */
+                $form['#submit'][] = 'uc_color_attribute_save';
+
+                if(isset($form['oid']['#value'])){
+                    $oid = $form['oid']['#value'];
+                    $default = db_query("SELECT hexValue from {uc_color_attribute} where oid = :oid limit 1", array(':oid' => $oid))->fetchField();
+                }
+                else{
+                    $default = 'FFFFFF';
+                }
+
+                $form['hexcolor'] = array(
+                    '#type' => 'jquery_colorpicker',
+                    '#title' => t('Color Picker'),
+                    '#description' => t('Please select a color from the colour picker.'),
+                    '#default_value' => $default,
+                    '#attributes' => array('width' => '200')
+                );
+            }             
+	}else { 
+	
+          if( ! $form['nid']['#value']){
+                return;
+            }
+            
+            $node = node_load($form['nid']['#value']);
+            if(!empty($node->attributes)){
+                foreach($node->attributes as $value){
+                    if($value->name == variable_get('uc_color_attribute_name','')){
+						
+                        /* We have a colour attribute choice */
+                        drupal_add_css(drupal_get_path('module', 'uc_color_attribute') . '/css/uc_color_attribute.css', 'file');
+                        drupal_add_js(drupal_get_path('module', 'uc_color_attribute') . '/js/uc_color_attribute.js', 'file');
+
+                        $attId = $value->aid;
+                        $html = '<div class="well colors-background clearfix"><input type="hidden" value="'.$node->nid.'" />';
+						
+						
+                        foreach($form['attributes'][$attId]['#options'] as $key => $value){
+                            $kexValue =  db_query("SELECT hexValue from {uc_color_attribute} where oid = :oid limit 1", array(':oid' => $key))->fetchField();
+                            if(!empty($kexValue)){
+                                $html .= "<div ng-controller='prdColorCtrl' ng-click='chooseColor(".$node->nid.");' hexcolor='0x".$kexValue."' style='background-color:#".$kexValue.";' class='colors-color' title='".$value."' oId='".$key."' attrId='".$attId."'></div>";
+                            }
+                        }
+
+                        $html .= "</div>";
+                        //Amended by Eric, Change prefix to suffix, as somehow prefix will add '1' in prefix accidently
+                        $form['attributes'][$attId]['#suffix'] = $html;
+                        //echo $attId;
+                    }
+                }
+            }            
+        }
+	return $form;
+}
+
+/* Form Submit Hook */
+function uc_color_attribute_save($form, &$form_state){
+	$color = $form_state['values']['hexcolor'];
+	$oid = $form_state['values']['oid'];
+   	$aid = $form_state['values']['aid'];
+        
+	db_merge('uc_color_attribute')
+	  ->key(array('oid' => $oid))
+	  ->fields(array(
+	    'aid' => $aid,
+	    'oid' => $oid,
+	    'hexValue' => $color
+	  )) 
+	  ->execute();
+}

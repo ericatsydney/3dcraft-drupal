@@ -1,0 +1,14 @@
+
+<div data-ng-app="">
+	<div data-ng-controller="angles_test_controller">
+		Name:
+		<br>
+		<input type="text" data-ng-model="name">
+		<br>
+		<ul>
+			<li data-ng-repeat="personName in names | filter:name">{{ personName }}</li>
+		</ul>		
+		<div id="angles_test_div" >Angles Test Template</div>
+	</div>
+</div>
+<script type="text/javascript" src="sites/all/libraries/angular/angular.min.js"></script>

@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * @file
+ * Ubercart Alteration module.
+ *
+ * Ubercart customization.
+ *
+ */
+
+
+/**
+ * Implements hook_form_alter().
+ */
+function uc_alter_form_alter(&$form, &$form_state, $form_id) {
+  
+  if ((stripos($form_id, 'uc_product_kit_add_to_cart_form') === 0 ) || 
+  (stripos($form_id, 'uc_product_add_to_cart_form') === 0 )) {
+  //dpm($form);  
+    $form['#theme']  = 'uc_alter_add_to_cart';
+  }
+}
+ 
+/**
+ * Implements hook_theme().
+ */
+function uc_alter_theme() {
+  return array(
+    'uc_alter_add_to_cart' => array(
+      'render element' => 'form',
+      'template' => 'uc_alter_form',
+    ),
+  );
+}
+
+/**
+ * Preprocessor for theme('uc_alter_add_to_cart').
+ */
+function template_preprocess_uc_alter_add_to_cart(&$variables) {
+  foreach ($variables['form']['products'] as $key => $value)
+  {
+    $variables['form']['products'][$key]['#title']='';    
+  }
+
+  // Extract the form buttons, and put them in independent variable.
+  $variables['buttons'] = $variables['form']['actions'];
+  hide($variables['form']['actions']);
+  $variables['title'] = $variables['form']['node']['#value']->title;
+  $variables['sell_price'] = $variables['form']['node']['#value']->sell_price;
+}

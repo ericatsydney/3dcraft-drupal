@@ -1,0 +1,14 @@
+name = Ubercart Alteration
+description = Customize the Ubercart function and layout.
+dependencies[] = uc_product
+package = Ubercart - core (optional)
+core = 7.x
+
+; Test cases
+files[] = tests/uc_alter.test
+
+; Information added by Drupal.org packaging script on 2013-12-17
+version = "7.x-3.6"
+core = "7.x"
+project = "ubercart"
+datestamp = "1387304010"
