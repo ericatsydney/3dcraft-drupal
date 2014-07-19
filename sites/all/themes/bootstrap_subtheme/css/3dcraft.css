@@ -1,6 +1,5 @@
 /* GLOBAL STYLES
 --------------------------------------------------- */
-/* font face*/
 @font-face {
  font-family: 'Bebas';
  src: url('/sites/all/themes/bootstrap_subtheme/fonts/Bebas.eot'); /* For Internet Explorer 6+ */
@@ -116,12 +115,13 @@ width: auto !important;}
 /* Fade transition for carousel items */
 
 
-#carousel-bootstrap .carousel-inner {position:relative; 
-overflow:hidden
+#carousel-bootstrap .carousel-inner {position:relative;
+overflow:hidden;
 width:100%;}
 
 #carousel-bootstrap .carousel-inner .item {
     left: 0 !important;
+    background-color: #fafafa;
       -webkit-transition: opacity 0.5s; /*adjust timing here */
          -moz-transition: opacity 0.5s;
            -o-transition: opacity 0.5s;
