@@ -276,9 +276,9 @@ function craft_deployment_views_default_views() {
   $handler = $view->new_display('block', 'Block', 'block_1');
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'views_bootstrap_carousel_plugin_style';
-  $handler->display->display_options['style_options']['interval'] = '7000';
-  $handler->display->display_options['style_options']['navigation'] = 1;
-  $handler->display->display_options['style_options']['indicators'] = 1;
+  $handler->display->display_options['style_options']['interval'] = 'false';
+  $handler->display->display_options['style_options']['navigation'] = 0;
+  $handler->display->display_options['style_options']['indicators'] = 0;
   $handler->display->display_options['style_options']['pause'] = 0;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
@@ -723,6 +723,8 @@ function craft_deployment_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';

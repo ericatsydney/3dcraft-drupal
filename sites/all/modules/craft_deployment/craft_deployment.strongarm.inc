@@ -337,21 +337,21 @@ function craft_deployment_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'cron_last';
-  $strongarm->value = 1405480188;
+  $strongarm->value = 1405809949;
   $export['cron_last'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'css_js_query_string';
-  $strongarm->value = 'n8shuo';
+  $strongarm->value = 'n8zdxg';
   $export['css_js_query_string'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'ctools_last_cron';
-  $strongarm->value = 1405413214;
+  $strongarm->value = 1405809953;
   $export['ctools_last_cron'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1678,13 +1678,7 @@ user/*/*';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'module_filter_recent_modules';
-  $strongarm->value = array(
-    'fbconnect' => 1404998996,
-    'oauthconnector' => 1405080729,
-    'fboauth' => 1404999716,
-    'oauth2_common' => 1405080472,
-    'connector_action_default_register_form' => 1405080938,
-  );
+  $strongarm->value = array();
   $export['module_filter_recent_modules'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -2719,7 +2713,7 @@ user/*/*';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'update_last_check';
-  $strongarm->value = 1405467058;
+  $strongarm->value = 1405809981;
   $export['update_last_check'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -3035,7 +3029,7 @@ Your account on [site:name] has been canceled.
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'xmlsitemap_regenerate_needed';
-  $strongarm->value = TRUE;
+  $strongarm->value = FALSE;
   $export['xmlsitemap_regenerate_needed'] = $strongarm;
 
   return $export;
