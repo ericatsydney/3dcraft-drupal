@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * Implements hook_menu_alter().
+ */
+function fboauth_ext_menu_alter(&$items) {
+    $items['user/password']['type'] = MENU_CALLBACK;
+    $items['user/register']['type'] = MENU_CALLBACK;
+}
+
+/**
+ * Implements hook_user_login().
+ */
+/*function fboauth_ext_user_login(&$edit, $account) {
+    if ($account->uid) {
+        // user is already logged in
+     }
+    // Include fboauth functions as required.
+  module_load_include('inc', 'fboauth', 'includes/fboauth.fboauth');
+  $access_token = $data['access_token'];
+  $app_id       = variable_get('fboauth_id', '');
+
+  // Find Drupal user that corresponds with this Facebook user.
+  $fbuser = fboauth_graph_query('me', $access_token);
+  $uid = fboauth_uid_load($fbuser->id);
+  if ($user = user_load($uid)) {
+      if ($user->status) {
+          // Much of the login logic was taken from _user_resource_login().
+          user_login_finalize();
+
+      $return = new stdClass();
+      $return->sessid = session_id();
+      $return->session_name = session_name();
+
+      services_remove_user_data($user);
+
+      $return->user = $user;
+
+      return $return;
+    }
+      else {
+          $message = t('The username %name has not been activated or is blocked.', array('%name' => $account->name));
+      }
+  }
+  else {
+      $message = t('Error: no Drupal account was found for the specified Facebook user');
+  }.
+
+
+}*/

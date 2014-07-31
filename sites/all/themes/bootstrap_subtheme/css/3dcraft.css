@@ -110,16 +110,15 @@ width: auto !important;}
   z-index: 10;
 }
 
-#views-bootstrap-carousel-1 > .carousel-inner > .item {display:block !important;}
+#views-bootstrap-carousel-1 > .carousel-inner > .item {display:block !important; left: 0 !important; position: relative !important;}
 
 /* Fade transition for carousel items */
 
 
-#carousel-bootstrap .carousel-inner {position:relative;
+#carousel-bootstrap >.carousel-inner {position:relative;
 overflow:hidden;
 width:100%;}
-
-#carousel-bootstrap .carousel-inner .item {
+#carousel-bootstrap > .carousel-inner > .item {
     left: 0 !important;
     background-color: #fafafa;
       -webkit-transition: opacity 0.5s; /*adjust timing here */
@@ -127,6 +126,8 @@ width:100%;}
            -o-transition: opacity 0.5s;
               transition: opacity 0.5s;
 }
+
+#carousel-bootstrap .carousel-inner {display: block;}
 
 #carousel-bootstrap .carousel-inner>.next, #carousel-bootstrap .carousel-inner>.prev {
     opacity: 0.3;
@@ -393,6 +394,13 @@ div.prod-desc {display: block; width:90%;}
  */
 .uc-store-address-field .form-item label {width: auto;}
 #edit-panes-payment-payment-method-paypal-wps, #edit-panes-billing-copy-address {margin-left: 0;}
+
+/**
+* Login page
+*/
+.page-user-login div.link {margin-bottom:5px;}
+.page-user-login #edit-submit {float: right;}
+.page-user-login #block-fboauth-login .btn {width: 100%; margin-bottom:20px;}
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */

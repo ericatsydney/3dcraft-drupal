@@ -1,0 +1,7 @@
+name = Facebook OAuth Extend
+description = Provides FBOAuth integration for the Services module.
+package = fboauth
+core = 7.x
+
+dependencies[] = fboauth
+

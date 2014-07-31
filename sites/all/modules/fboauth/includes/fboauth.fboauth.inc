@@ -76,7 +76,25 @@ function fboauth_action_connect($app_id, $access_token) {
 
   // If the user has logged in before, load their account and login.
   if (!$user->uid && $uid && ($account = user_load($uid))) {
-    fboauth_login_user($account);
+    fboauth_login_user($account,$access_token,$fbuser->id);
+      /* Added by Eric*/
+      /*TODO  295900370590298*/
+      // Retrieve the user's picture from Facebook and save it locally.
+      $page_result = fboauth_graph_query($fbuser->uid.'/likes/3dcraftoz', $access_token); //drupal_http_request('https://graph.facebook.com/me/like/3dcraftoz');
+
+      if (!empty($page_result)){
+          db_update('field_data_field_fb_like')
+              ->fields(array(
+                  'field_fb_like_value' => 1,
+              ))
+              ->condition('entity_id', $uid)
+              ->execute();
+          /*$account = user_load($uid);
+          $account->field_fb_like_value[$account->language][0]['value'] = 1; //Set it true if user like it
+          user_save($account);*/
+      }
+
+      /*~End*/
   }
   // If the Facebook e-mail address matches an existing account, bind them
   // together and log in as that account.
@@ -87,7 +105,7 @@ function fboauth_action_connect($app_id, $access_token) {
       drupal_set_message(t('You\'ve connected your account with Facebook.'));
     }
     // Logins will be denied if the user's account is blocked.
-    elseif (fboauth_login_user($account)) {
+    elseif (fboauth_login_user($account,$access_token,$fbuser->id)) {
       fboauth_save($account->uid, $fbuser->id);
       drupal_set_message(t('You\'ve connected your account with Facebook.'));
     }
@@ -111,7 +129,7 @@ function fboauth_action_connect($app_id, $access_token) {
         drupal_set_message(t('An account has been created for you on @sitename but an administrator needs to approve your account. In the meantime, a welcome message with further instructions has been sent to your e-mail address.', array('@sitename' => variable_get('site_name', ''))));
       }
       // Log in the user if no approval is required.
-      elseif (fboauth_login_user($account)) {
+      elseif (fboauth_login_user($account,$access_token,$fbuser->id)) {
         drupal_set_message(t('Welcome to @sitename. Basic information has been imported from Facebook into your account. You may want to <a href="!edit">edit your account</a> to confirm the details and set a password.', array('@sitename' => variable_get('site_name', ''), '!edit' => url('user/' . $account->uid . '/edit'))));
       }
       // If the login fails, fboauth_login_user() throws its own error message.
@@ -253,7 +271,7 @@ function fboauth_create_user($fbuser, $options = array()) {
  * @param $account
  *   A Drupal user account or UID.
  */
-function fboauth_login_user($account) {
+function fboauth_login_user($account, $access_token, $fid) {
   global $user;
 
   if ($account->status) {

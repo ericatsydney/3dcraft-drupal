@@ -2094,6 +2094,23 @@ function user_login($form, &$form_state) {
   $form['actions'] = array('#type' => 'actions');
   $form['actions']['submit'] = array('#type' => 'submit', '#value' => t('Log in'));
 
+    //Added by Eric
+    //TODO replaced by customize module
+    $form['link1'] = array(
+        '#prefix' => '<div class="link">',
+        '#type' => 'link',
+        '#title' => 'Forget password?',
+        '#href' => 'user/password',
+        '#suffix' => '</div>',
+    );
+    $form['link2'] = array(
+        '#prefix' => '<div class="link">',
+        '#type' => 'link',
+        '#title' => "Signup Now!",
+        '#href' => 'user/register',
+        '#suffix' => '</div>',
+    );
+
   return $form;
 }
 

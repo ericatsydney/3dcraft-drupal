@@ -181,8 +181,9 @@ class DrupalOAuthClient {
     if ($this->version == OAUTH_COMMON_VERSION_1 && $options['callback']) {
       $options['params']['oauth_callback'] = $options['callback'];
     }
-    $options['params']['oauth_token'] = $this->requestToken->key;
-
+      if(!strpos($endpoint,'facebook')){
+        $options['params']['oauth_token'] = $this->requestToken->key;
+      }
     $endpoint = $this->getAbsolutePath($endpoint);
     $append_query = strpos($endpoint, '?') === FALSE ? '?' : '&';
     return $endpoint . $append_query . http_build_query($options['params'], NULL, '&');

@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2576853-ad4e-4fc9-b421-f8049bf604bd" name="Default" comment="">
+    <list default="true" id="f2576853-ad4e-4fc9-b421-f8049bf604bd" name="Default" comment="facebook login + likeus function&#10;login, forget password page themeing&#10;other css">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/CUSTOM/fboauth_ext/LICENSE.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/CUSTOM/fboauth_ext/README.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/CUSTOM/fboauth_ext/fboauth_ext.info" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/CUSTOM/fboauth_ext/fboauth_ext.module" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/themes/bootstrap_subtheme/templates/page--user--login.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/themes/bootstrap_subtheme/templates/page--user--password.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bootstrap_subtheme/css/3dcraft.css" afterPath="$PROJECT_DIR$/sites/all/themes/bootstrap_subtheme/css/3dcraft.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/oauth/includes/DrupalOAuthClient.inc" afterPath="$PROJECT_DIR$/sites/all/modules/oauth/includes/DrupalOAuthClient.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/fboauth/includes/fboauth.fboauth.inc" afterPath="$PROJECT_DIR$/sites/all/modules/fboauth/includes/fboauth.fboauth.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/fboauth/fboauth.module" afterPath="$PROJECT_DIR$/sites/all/modules/fboauth/fboauth.module" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/user/user.module" afterPath="$PROJECT_DIR$/modules/user/user.module" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="3dcraft.iws" />
@@ -26,47 +37,116 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="fboauth.module" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/fboauth.module">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="228">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/default/settings.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="225" column="4" selection-start="7980" selection-end="7980" vertical-scroll-proportion="215.5" vertical-offset="9359" max-vertical-offset="9937">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="git.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/git.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1045">
+            <state line="428" column="102" selection-start="14560" selection-end="14560" vertical-scroll-proportion="-4.8" vertical-offset="7868" max-vertical-offset="8588">
               <folding>
-                <element signature="e#6#167#0" expanded="true" />
-                <marker date="1405738810515" expanded="false" signature="523:538" placeholder="..." />
-                <marker date="1405738810515" expanded="false" signature="565:580" placeholder="..." />
-                <marker date="1405738810515" expanded="true" signature="749:1263" placeholder="..." />
-                <marker date="1405738810515" expanded="true" signature="756:832" placeholder="..." />
-                <marker date="1405738810515" expanded="true" signature="847:925" placeholder="..." />
-                <marker date="1405738810515" expanded="true" signature="926:1255" placeholder="..." />
-                <marker date="1405738810515" expanded="true" signature="932:1247" placeholder="..." />
-                <marker date="1405738810515" expanded="true" signature="1039:1054" placeholder="..." />
+                <marker date="1406814926890" expanded="true" signature="7221:7270" placeholder="SELECT fbid ..." />
+                <marker date="1406814926890" expanded="true" signature="7476:7526" placeholder="SELECT uid F..." />
+                <marker date="1406814926890" expanded="true" signature="7891:7935" placeholder="DELETE FROM ..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="3dcraft.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="fboauth.fboauth.inc" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/includes/fboauth.fboauth.inc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="70" column="32" selection-start="2925" selection-end="2925" vertical-scroll-proportion="0.33236152" vertical-offset="1159" max-vertical-offset="15732">
+              <folding>
+                <marker date="1405991678312" expanded="true" signature="8418:8460" placeholder="SELECT uid F..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page--user--login.tpl.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap_subtheme/templates/page--user--login.tpl.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="159" column="4" selection-start="6365" selection-end="6365" vertical-scroll-proportion="-7.464286" vertical-offset="2812" max-vertical-offset="3553">
+              <folding>
+                <element signature="e#6#3287#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user-profile.tpl.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/user/user-profile.tpl.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="247">
+              <folding>
+                <marker date="1399521900000" expanded="true" signature="1613:1687" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user-picture.tpl.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/user/user-picture.tpl.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="285">
+              <folding>
+                <marker date="1399521900000" expanded="true" signature="534:577" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.pages.inc" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/user/user.pages.inc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="559" column="28" selection-start="21916" selection-end="21916" vertical-scroll-proportion="-6.142857" vertical-offset="10392" max-vertical-offset="10735">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.module" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/user/user.module">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2110" column="30" selection-start="76772" selection-end="76772" vertical-scroll-proportion="-8.857142" vertical-offset="39842" max-vertical-offset="76988">
+              <folding>
+                <element signature="e#7#74#0" expanded="true" />
+                <marker date="1406816949593" expanded="true" signature="11279:11331" placeholder="SELECT uid F..." />
+                <marker date="1406816949593" expanded="true" signature="13557:13669" placeholder="SELECT r.rid..." />
+                <marker date="1406816949593" expanded="true" signature="23293:23321" placeholder="SELECT MAX(u..." />
+                <marker date="1406816949593" expanded="true" signature="29938:30005" placeholder="SELECT rid, ..." />
+                <marker date="1406816949593" expanded="true" signature="53491:53576" placeholder="SELECT uid, ..." />
+                <marker date="1406816949593" expanded="true" signature="54206:54298" placeholder="SELECT COUNT..." />
+                <marker date="1406816949593" expanded="true" signature="54711:54918" placeholder="SELECT u.uid..." />
+                <marker date="1406816949593" expanded="true" signature="74262:74327" placeholder="SELECT modul..." />
+                <marker date="1406816949593" expanded="true" signature="79162:79217" placeholder="SELECT * FRO..." />
+                <marker date="1406816949593" expanded="true" signature="115763:115803" placeholder="SELECT name ..." />
+                <marker date="1406816949593" expanded="true" signature="129167:129232" placeholder="SELECT uid, ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="3dcraft.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap_subtheme/css/3dcraft.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="121" column="19" selection-start="4027" selection-end="4027" vertical-scroll-proportion="0.328152" vertical-offset="2109" max-vertical-offset="9215">
+            <state line="402" column="72" selection-start="14698" selection-end="14698" vertical-scroll-proportion="0.0" vertical-offset="7305" max-vertical-offset="9367">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page--user--password.tpl.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap_subtheme/templates/page--user--password.tpl.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="159" column="29" selection-start="6390" selection-end="6390" vertical-scroll-proportion="-8.142858" vertical-offset="1425" max-vertical-offset="2185">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fboauth_ext.module" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/CUSTOM/fboauth_ext/fboauth_ext.module">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="12" selection-start="103" selection-end="116" vertical-scroll-proportion="-4.071429" vertical-offset="0" max-vertical-offset="1064">
               <folding />
             </state>
           </provider>
@@ -90,9 +170,19 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/git.php" />
+        <option value="$PROJECT_DIR$/sites/default/settings.php" />
+        <option value="$PROJECT_DIR$/.htaccess" />
+        <option value="$PROJECT_DIR$/sites/all/modules/oauth/includes/DrupalOAuthClient.inc" />
+        <option value="$PROJECT_DIR$/sites/all/modules/CUSTOM/fboauth_ext/fboauth_ext.info" />
+        <option value="$PROJECT_DIR$/sites/all/modules/fboauth/includes/fboauth.fboauth.inc" />
+        <option value="$PROJECT_DIR$/sites/all/modules/CUSTOM/fboauth_ext/fboauth_ext.module" />
+        <option value="$PROJECT_DIR$/sites/all/modules/fboauth/fboauth.module" />
+        <option value="$PROJECT_DIR$/sites/all/themes/bootstrap_subtheme/templates/page-user-login.tpl.php" />
+        <option value="$PROJECT_DIR$/sites/all/themes/bootstrap_subtheme/templates/page--user--login.tpl.php" />
+        <option value="$PROJECT_DIR$/modules/user/user.module" />
         <option value="$PROJECT_DIR$/sites/all/themes/bootstrap_subtheme/css/3dcraft.css" />
+        <option value="$PROJECT_DIR$/sites/all/themes/bootstrap_subtheme/templates/page--user--password.tpl.php" />
       </list>
     </option>
   </component>
@@ -147,24 +237,234 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3dcraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3dcraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3dcraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3dcraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3dcraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3dcraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bootstrap_subtheme" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3dcraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3dcraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bootstrap_subtheme" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3dcraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3dcraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bootstrap_subtheme" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3dcraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3dcraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3dcraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3dcraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="craft_deployment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3dcraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3dcraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="125" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="143" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ccma" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="145" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="155" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="820" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="827" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="149" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="136" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="FullScreen" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="options.lastSelected" value="preferences.pluginManager" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="options.searchVisible" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp-portable\htdocs\website\3dcraft\sites\all\themes\bootstrap_subtheme\templates" />
+      <recent name="D:\xampp-portable\htdocs\website\3dcraft\sites\all\modules\CUSTOM" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -177,7 +477,7 @@
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="87fe9615-6e2b-473c-8368-dbd38334953d" server_name="3dcraftdev">
       <method />
     </configuration>
     <list size="0" />
@@ -218,36 +518,68 @@
       <created>1405742000578</created>
       <updated>1405742000578</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="test git setting">
+      <created>1405743787531</created>
+      <updated>1405743787531</updated>
+    </task>
+    <task id="LOCAL-00005" summary="test git setting">
+      <created>1405810970546</created>
+      <updated>1405810970546</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1288" height="774" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24148607" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972136" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.6702786" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.325" sideWeight="0.75517243" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.6702786" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32662538" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24482758" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972136" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32972136" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2390625" sideWeight="0.6702786" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972136" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.52265626" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Command Line Tools Console" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32924107" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24252874" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32988507" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.6702786" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32662538" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972136" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972136" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.325" sideWeight="0.6702786" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.52265626" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972136" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32924107" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -263,54 +595,326 @@
     </option>
     <MESSAGE value="git setting" />
     <MESSAGE value="test git setting" />
-    <option name="LAST_COMMIT_MESSAGE" value="test git setting" />
+    <MESSAGE value="facebook login + likeus function&#10;login, forget password page themeing&#10;other css" />
+    <option name="LAST_COMMIT_MESSAGE" value="facebook login + likeus function&#10;login, forget password page themeing&#10;other css" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.htaccess">
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/fboauth.module">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="0" selection-start="2120" selection-end="2120" vertical-scroll-proportion="0.031353135" vertical-offset="1121" max-vertical-offset="2831">
+        <state line="354" column="0" selection-start="11195" selection-end="11195" vertical-scroll-proportion="0.0" vertical-offset="6434" max-vertical-offset="8569">
+          <folding>
+            <marker date="1406814926890" expanded="true" signature="7221:7270" placeholder="SELECT fbid ..." />
+            <marker date="1406814926890" expanded="true" signature="7476:7526" placeholder="SELECT uid F..." />
+            <marker date="1406814926890" expanded="true" signature="7891:7935" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/includes/fboauth.fboauth.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="31" selection-start="2902" selection-end="2924" vertical-scroll-proportion="0.0" vertical-offset="1330" max-vertical-offset="15789">
+          <folding>
+            <marker date="1405991678312" expanded="true" signature="8418:8460" placeholder="SELECT uid F..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/fboauth.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="352" column="52" selection-start="11174" selection-end="11187" vertical-scroll-proportion="0.0" vertical-offset="6434" max-vertical-offset="8569">
+          <folding>
+            <marker date="1406814926890" expanded="true" signature="7221:7270" placeholder="SELECT fbid ..." />
+            <marker date="1406814926890" expanded="true" signature="7476:7526" placeholder="SELECT uid F..." />
+            <marker date="1406814926890" expanded="true" signature="7891:7935" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/includes/fboauth.fboauth.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="31" selection-start="2902" selection-end="2924" vertical-scroll-proportion="0.0" vertical-offset="1330" max-vertical-offset="15789">
+          <folding>
+            <marker date="1405991678312" expanded="true" signature="8418:8460" placeholder="SELECT uid F..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/fboauth.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="41" selection-start="809" selection-end="809" vertical-scroll-proportion="0.0" vertical-offset="317" max-vertical-offset="8569">
+          <folding>
+            <marker date="1406814926890" expanded="true" signature="7221:7270" placeholder="SELECT fbid ..." />
+            <marker date="1406814926890" expanded="true" signature="7476:7526" placeholder="SELECT uid F..." />
+            <marker date="1406814926890" expanded="true" signature="7891:7935" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/includes/fboauth.fboauth.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="93" column="32" selection-start="3969" selection-end="3969" vertical-scroll-proportion="0.0" vertical-offset="1596" max-vertical-offset="15789">
+          <folding>
+            <marker date="1405991678312" expanded="true" signature="8418:8460" placeholder="SELECT uid F..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/fboauth.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="41" selection-start="809" selection-end="809" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8569">
+          <folding>
+            <marker date="1406814926890" expanded="true" signature="7221:7270" placeholder="SELECT fbid ..." />
+            <marker date="1406814926890" expanded="true" signature="7476:7526" placeholder="SELECT uid F..." />
+            <marker date="1406814926890" expanded="true" signature="7891:7935" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/includes/fboauth.fboauth.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="29" selection-start="3307" selection-end="3307" vertical-scroll-proportion="0.0" vertical-offset="1520" max-vertical-offset="15713">
+          <folding>
+            <marker date="1405991678312" expanded="true" signature="8418:8460" placeholder="SELECT uid F..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/fboauth.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="243" column="0" selection-start="7364" selection-end="7364" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8569">
+          <folding>
+            <marker date="1406814926890" expanded="true" signature="7221:7270" placeholder="SELECT fbid ..." />
+            <marker date="1406814926890" expanded="true" signature="7476:7526" placeholder="SELECT uid F..." />
+            <marker date="1406814926890" expanded="true" signature="7891:7935" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/includes/fboauth.fboauth.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="31" selection-start="2980" selection-end="2999" vertical-scroll-proportion="0.0" vertical-offset="1387" max-vertical-offset="15447">
+          <folding>
+            <marker date="1405991678312" expanded="true" signature="8418:8460" placeholder="SELECT uid F..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/includes/fboauth.pages.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="27" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="3838" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/includes/fboauth.profile.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2907" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/CUSTOM/fboauth_ext/fboauth_ext.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="28" selection-start="310" selection-end="310" vertical-scroll-proportion="0.0" vertical-offset="190" max-vertical-offset="893" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/fboauth.api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="174" column="0" selection-start="6199" selection-end="6199" vertical-scroll-proportion="0.0" vertical-offset="3306" max-vertical-offset="3762" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/CUSTOM/fboauth_ext/fboauth_ext.info">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="24" selection-start="151" selection-end="151" vertical-scroll-proportion="0.0" vertical-offset="95" max-vertical-offset="247" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/oauthconnector/modules/oauth2/lib/DrupalOAuth2Client.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="85.5" vertical-offset="2394" max-vertical-offset="2888" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/oauthconnector/oauthconnector.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="883" column="51" selection-start="29487" selection-end="29529" vertical-scroll-proportion="-4.75" vertical-offset="16587" max-vertical-offset="17100" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/oauth2/includes/DrupalOAuth2Client.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6308" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/fboauth.info">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="535" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/fboauth.install">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.1252337" vertical-offset="1137" max-vertical-offset="1672" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/includes/fboauth.field.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="66.5" vertical-offset="1862" max-vertical-offset="3952" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/includes/fboauth.pages.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="27" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="3838" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/commerce/modules/cart/commerce_cart.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="589" column="50" selection-start="22046" selection-end="22062" vertical-scroll-proportion="0.5436106" vertical-offset="10809" max-vertical-offset="51870" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/rules/modules/events.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="150" column="14" selection-start="4577" selection-end="4577" vertical-scroll-proportion="0.35177866" vertical-offset="2558" max-vertical-offset="3895" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/ubercart/uc_cart/uc_cart.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="278" column="14" selection-start="8431" selection-end="8431" vertical-scroll-proportion="0.35091278" vertical-offset="4957" max-vertical-offset="26334" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/includes/fboauth.profile.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2850" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/fboauth.api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="174" column="0" selection-start="6199" selection-end="6199" vertical-scroll-proportion="0.0" vertical-offset="3306" max-vertical-offset="3762" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/common.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2179" column="9" selection-start="72797" selection-end="72797" vertical-scroll-proportion="0.4608076" vertical-offset="41093" max-vertical-offset="156560">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="594">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sites/default/settings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="225" column="4" selection-start="7980" selection-end="7980" vertical-scroll-proportion="215.5" vertical-offset="9359" max-vertical-offset="9937">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/git.php">
+    <entry file="file://$PROJECT_DIR$/modules/user/user-profile.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="619">
           <folding>
-            <element signature="e#6#167#0" expanded="true" />
-            <marker date="1405738810515" expanded="false" signature="523:538" placeholder="..." />
-            <marker date="1405738810515" expanded="false" signature="565:580" placeholder="..." />
-            <marker date="1405738810515" expanded="true" signature="749:1263" placeholder="..." />
-            <marker date="1405738810515" expanded="true" signature="756:832" placeholder="..." />
-            <marker date="1405738810515" expanded="true" signature="847:925" placeholder="..." />
-            <marker date="1405738810515" expanded="true" signature="926:1255" placeholder="..." />
-            <marker date="1405738810515" expanded="true" signature="932:1247" placeholder="..." />
-            <marker date="1405738810515" expanded="true" signature="1039:1054" placeholder="..." />
+            <marker date="1399521900000" expanded="true" signature="1613:1687" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/user/user-picture.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="619">
+          <folding>
+            <marker date="1399521900000" expanded="true" signature="534:577" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/system/system.admin.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2213" column="422" selection-start="82134" selection-end="82144" vertical-scroll-proportion="0.33136094" vertical-offset="41935" max-vertical-offset="61332">
+          <folding>
+            <element signature="e#7#70#0" expanded="true" />
+            <marker date="1399521900000" expanded="true" signature="-1:-1" placeholder="SELECT menu_..." />
+            <marker date="1399521900000" expanded="true" signature="-1:-1" placeholder="SELECT m.*, ..." />
+            <marker date="1399521900000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1399521900000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1399521900000" expanded="true" signature="-1:-1" placeholder="SELECT aid F..." />
+            <marker date="1399521900000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/CUSTOM/fboauth_ext/fboauth_ext.info">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="24" selection-start="151" selection-end="151" vertical-scroll-proportion="0.20518358" vertical-offset="0" max-vertical-offset="463">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/CUSTOM/uc_alter/uc_alter.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.1839081" vertical-offset="515" max-vertical-offset="950">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/fboauth.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="428" column="102" selection-start="14560" selection-end="14560" vertical-scroll-proportion="-4.8" vertical-offset="7868" max-vertical-offset="8588">
+          <folding>
+            <marker date="1406814926890" expanded="true" signature="7221:7270" placeholder="SELECT fbid ..." />
+            <marker date="1406814926890" expanded="true" signature="7476:7526" placeholder="SELECT uid F..." />
+            <marker date="1406814926890" expanded="true" signature="7891:7935" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap_subtheme/templates/page--user--login.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="159" column="4" selection-start="6365" selection-end="6365" vertical-scroll-proportion="-7.464286" vertical-offset="2812" max-vertical-offset="3553">
+          <folding>
+            <element signature="e#6#3287#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/user/user.pages.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="559" column="28" selection-start="21916" selection-end="21916" vertical-scroll-proportion="-6.142857" vertical-offset="10392" max-vertical-offset="10735">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/CUSTOM/fboauth_ext/fboauth_ext.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="12" selection-start="103" selection-end="116" vertical-scroll-proportion="-4.071429" vertical-offset="0" max-vertical-offset="1064">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/user/user.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2110" column="30" selection-start="76772" selection-end="76772" vertical-scroll-proportion="-8.857142" vertical-offset="39842" max-vertical-offset="76988">
+          <folding>
+            <element signature="e#7#74#0" expanded="true" />
+            <marker date="1406816949593" expanded="true" signature="11279:11331" placeholder="SELECT uid F..." />
+            <marker date="1406816949593" expanded="true" signature="13557:13669" placeholder="SELECT r.rid..." />
+            <marker date="1406816949593" expanded="true" signature="23293:23321" placeholder="SELECT MAX(u..." />
+            <marker date="1406816949593" expanded="true" signature="29938:30005" placeholder="SELECT rid, ..." />
+            <marker date="1406816949593" expanded="true" signature="53491:53576" placeholder="SELECT uid, ..." />
+            <marker date="1406816949593" expanded="true" signature="54206:54298" placeholder="SELECT COUNT..." />
+            <marker date="1406816949593" expanded="true" signature="54711:54918" placeholder="SELECT u.uid..." />
+            <marker date="1406816949593" expanded="true" signature="74262:74327" placeholder="SELECT modul..." />
+            <marker date="1406816949593" expanded="true" signature="79162:79217" placeholder="SELECT * FRO..." />
+            <marker date="1406816949593" expanded="true" signature="115763:115803" placeholder="SELECT name ..." />
+            <marker date="1406816949593" expanded="true" signature="129167:129232" placeholder="SELECT uid, ..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap_subtheme/css/3dcraft.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="19" selection-start="4027" selection-end="4027" vertical-scroll-proportion="0.328152" vertical-offset="2109" max-vertical-offset="9215">
+        <state line="402" column="72" selection-start="14698" selection-end="14698" vertical-scroll-proportion="0.0" vertical-offset="7305" max-vertical-offset="9367">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap_subtheme/templates/page--user--password.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="159" column="29" selection-start="6390" selection-end="6390" vertical-scroll-proportion="-8.142858" vertical-offset="1425" max-vertical-offset="2185">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/fboauth/includes/fboauth.fboauth.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="32" selection-start="2925" selection-end="2925" vertical-scroll-proportion="0.33236152" vertical-offset="1159" max-vertical-offset="15732">
+          <folding>
+            <marker date="1405991678312" expanded="true" signature="8418:8460" placeholder="SELECT uid F..." />
+          </folding>
         </state>
       </provider>
     </entry>
