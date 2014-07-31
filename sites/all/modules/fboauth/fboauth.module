@@ -427,7 +427,6 @@ function theme_fboauth_action__connect($variables) {
   $src = ($GLOBALS['is_https'] ? 'https' : 'http') . '://www.facebook.com/images/fbconnect/login-buttons/connect_light_medium_short.gif';
   //return '<a ' . $attributes . ' href="' . $url . '"><img src="' . $src . '" alt="' . $title . '" /></a>';
     //Added by Eric
-    //
   return '<a ' . $attributes . ' href="' . $url . '"><div class="btn btn-primary">Log in with Facebook</div></a>';
 }
 
