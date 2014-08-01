@@ -29,7 +29,12 @@
 .Tinos-fonts {font-family: 'Tinos'; font-weight: 900; font-size: 20px;}
 .Bebas-fonts {font-family: 'Bebas'; font-weight: 900; font-size: 20px;}
 .Vanilla-fonts {font-family: 'Vanilla'; font-weight: 900; font-size: 20px;}
-
+html, body {
+    height: 100%;
+}
+.main-container.container {min-height: 60%;
+    height: auto !important; /*min-height hack*/
+    }
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
@@ -194,7 +199,7 @@ Header
 .glyphicon-wrapper:hover {background-color:#6091ba; /*#ec6d58*/ color:#fff;}
 .glyphicon-wrapper .glyphicon {font-size:70px;text-align:center; line-height:180px;color:inherit;}
 .navbar.container > .container {width:100%; max-width: 1060px; margin:0 auto;}
-
+#overlay-content .navbar {display:none;}
 /* Flip around the padding for proper display in narrow viewports */
 .navbar-wrapper .container {
   padding-right: 0;
