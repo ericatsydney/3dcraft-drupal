@@ -305,7 +305,7 @@ function craft_deployment_views_default_views() {
   /* Display: Shopping - Home Page */
   $handler = $view->new_display('block', 'Shopping - Home Page', 'block_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'New Products ';
+  $handler->display->display_options['title'] = 'Show Cases ';
   $handler->display->display_options['display_description'] = 'Shopping';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
