@@ -182,7 +182,7 @@ function craft_deployment_views_default_views() {
   $handler->display->display_options['fields']['sell_price']['alter']['text'] = '<div class="show_case_wrapper">
 <div class="prod_img">[uc_product_image] </div>
 <h4 class="pull-left">[title]</h5>
-<h4 class="prod_price pull-right"></h5>
+<h4 class="prod_price pull-right">[sell_price]</h5>
 <div class="clearfix"></div>
 </div>';
   $handler->display->display_options['fields']['sell_price']['element_label_colon'] = FALSE;
