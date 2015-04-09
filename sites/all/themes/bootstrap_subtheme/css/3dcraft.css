@@ -1,5 +1,14 @@
 /* GLOBAL STYLES
 --------------------------------------------------- */
+/*urgent override */
+.prod-sell-price,
+.node-add-to-cart.btn {
+  display: none !important;
+}
+form[id*="uc-product-kit-add-to-cart-form-"] fieldset.panel.panel-default {
+  box-shadow: none;
+}
+/*urgent override end */
 @font-face {
  font-family: 'Bebas';
  src: url('/sites/all/themes/bootstrap_subtheme/fonts/Bebas.eot'); /* For Internet Explorer 6+ */
