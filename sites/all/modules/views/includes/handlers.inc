@@ -897,11 +897,10 @@ class views_many_to_one_helper {
       if ($this->handler->operator == 'or' && empty($this->handler->options['reduce_duplicates'])) {
         if (empty($this->handler->options['add_table']) && empty($this->handler->view->many_to_one_tables[$field])) {
           // query optimization, INNER joins are slightly faster, so use them
-          // when we know we can. 
-          // Amended by Eric Tan to fix "or" bug
+          // when we know we can.
           $join = $this->get_join();
           if (isset($join)) {
-            $join->type = 'LEFT';//$join->type = 'INNER';
+            $join->type = 'INNER';
           }
           $this->handler->table_alias = $this->handler->query->ensure_table($this->handler->table, $this->handler->relationship, $join);
           $this->handler->view->many_to_one_tables[$field] = $this->handler->value;
@@ -1582,7 +1581,7 @@ class views_join {
             // With an array of values, we need multiple placeholders and the
             // 'IN' operator is implicit.
             foreach ($info['value'] as $value) {
-              $placeholder_i = ':views_join_condition_' . $select_query->nextPlaceholder();
+              $placeholder_i = $view_query->placeholder('views_join_condition_');
               $arguments[$placeholder_i] = $value;
             }
 
@@ -1592,10 +1591,9 @@ class views_join {
           else {
             // With a single value, the '=' operator is implicit.
             $operator = !empty($info['operator']) ? $info['operator'] : '=';
-            $placeholder = ':views_join_condition_' . $select_query->nextPlaceholder();
+            $placeholder = $view_query->placeholder('views_join_condition_');
             $arguments[$placeholder] = $info['value'];
           }
-
           $extras[] = "$join_table$info[field] $operator $placeholder";
         }
 

@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Session based authentication plugin.
+ */
 
 /**
  * Authentication class that uses session authentication.
@@ -12,6 +16,9 @@ class DeployAuthenticatorSession implements DeployAuthenticator {
    */
   public $config = array();
 
+  /**
+   * {@inheritdoc}
+   */
   public function __construct(DeployService $service, Array $config = array()) {
     $this->service = $service;
     $this->config += array(
@@ -22,6 +29,9 @@ class DeployAuthenticatorSession implements DeployAuthenticator {
     $this->config = array_merge($this->config, $config);
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function deploy(Traversable $iterator) {
     // Only authenticate if we've got a username and password. This allows for
     // deployment as an anonymous user. There are usecases for that.
@@ -61,12 +71,23 @@ class DeployAuthenticatorSession implements DeployAuthenticator {
         // We have to get a CSFR Token from the server and pass along with
         // each services call (introduced in Services 7.x-3.4
         // as per SA-CONTRIB-2013-051; https://drupal.org/node/2012982).
+        $user = NULL;
         $parts = parse_url($this->service->config['url']);
         $port = '';
+
         if (isset($parts['port'])) {
           $port = ':' . $parts['port'];
         }
-        $token_url = $parts['scheme'] . '://' . $parts['host'] . $port . '/services/session/token';
+
+        if (isset($parts['user'])) {
+          $user = $parts['user'];
+        }
+
+        if (isset($parts['pass'])) {
+          $pass = $parts['pass'];
+        }
+
+        $token_url = $parts['scheme'] . '://' . ($user ? $user . ':' . $pass . '@' : '') . $parts['host'] . $port . '/services/session/token';
 
         $token_response = drupal_http_request($token_url, array('method' => 'GET', 'headers' => $this->service->config['headers']));
         if (isset($token_response->error) || !in_array($token_response->code, array(200, 304))) {
@@ -78,7 +99,8 @@ class DeployAuthenticatorSession implements DeployAuthenticator {
         }
 
         $this->service->config['headers']['X-CSRF-Token'] = trim($token_response->data);
-      } else {
+      }
+      else {
         throw new DeployAuthenticationException(t("No session was returned from the authentication request."));
       }
     }
@@ -107,6 +129,9 @@ class DeployAuthenticatorSession implements DeployAuthenticator {
     }
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function configForm(&$form_state) {
     return array(
       'username' => array(

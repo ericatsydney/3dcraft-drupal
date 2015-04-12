@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * Entity Dependency classes.
+ */
+
+/**
  * Wrapper class around the SPL RecursiveIteratorIterator.
  */
 class EntityDependencyIteratorIterator extends RecursiveIteratorIterator {}
@@ -54,12 +59,13 @@ class EntityDependencyIterator implements RecursiveIterator {
   public $belongings = array();
 
   /**
-   * An array with information on who added a particular entity to the tree,
-   * i.e. an entity's origin.
+   * An array with information on the cause/reason why an entity exists in the
+   * tree. Basically, the cause for term A's existance in the tree, might be
+   * becasue node B depends on it.
    *
    * @var array
    */
-  public $origins = array();
+  public $causes = array();
 
   /**
    * Keeps track of entities that have already been checked for dependencies.
@@ -83,20 +89,43 @@ class EntityDependencyIterator implements RecursiveIterator {
    * @param array $parent
    *   The parent array of the current entity.
    *
-   * @see entity_dependency_iterator().
+   * @see entity_dependency_iterator()
    */
   public function __construct($entities, &$parent = NULL) {
-    $this->entities = $entities;
+    $this->entities = array();
+    foreach ($entities as $entity_arr) {
+      $entity_obj = entity_load($entity_arr['type'], array($entity_arr['id']));
+      if (empty($entity_obj)) {
+        if (isset($parent)) {
+          $error_msg = 'Failed to load %type ID %id, which is a dependency of %parent_type ID %parent_id.';
+          $error_vars = array(
+            '%type' => $entity_arr['type'],
+            '%id' => $entity_arr['id'],
+            '%parent_type' => $parent->current['type'],
+            '%parent_id' => $parent->current['id'],
+          );
+        }
+        else {
+          $error_msg = t('Failed to load requested %type ID %id.');
+          $error_vars = array(
+            '%type' => $entity_arr['type'],
+            '%id' => $entity_arr['id'],
+          );
+        }
+        watchdog('Entity Dependency', $error_msg, $error_vars, WATCHDOG_WARNING);
+      }
+      else {
+        $this->entities[] = $entity_arr;
+      }
+    }
 
     if (empty($parent)) {
-      foreach ($this->entities as $entity_type => $entity_ids) {
-        foreach ($entity_ids as $entity_id => $somethings) {
-          $this->origins[$entity_type][$entity_id] = FALSE;
-        }
+      foreach ($this->entities as $key => $entity) {
+        $this->causes[$entity['type']][$entity['id']] = FALSE;
       }
     }
     else {
-      $this->origins =& $parent->origins;
+      $this->causes =& $parent->causes;
       $this->checked =& $parent->checked;
       $this->traversed =& $parent->traversed;
     }
@@ -109,41 +138,52 @@ class EntityDependencyIterator implements RecursiveIterator {
    * @return boolean
    */
   public function hasChildren() {
-    $current = current($this->entities);
-    if (is_array($current)) {
-      return TRUE;
-    }
-
+    $current = $this->current;
     // Don't check for dependencies twice.
-    if (!isset($this->checked[$this->entityType][$this->entityId]) && !empty($this->entityId)) {
+    if (!empty($this->current['id']) && !isset($this->checked[$current['type']][$current['id']])) {
       // Load the current entity.
-      $entity = reset(entity_load($this->entityType, array($this->entityId)));
+      if (!empty($current['revision_id'])) {
+        $entity_info = entity_get_info($current['type']);
+        if (!empty($entity_info['entity keys']['revision'])) {
+          $conditions = array($entity_info['entity keys']['revision'] => $current['revision_id']);
+        }
+      }
+      else {
+        $conditions = array();
+      }
+      $entities = entity_load($current['type'], array($current['id']), $conditions);
+      $entity = reset($entities);
 
-      $this->dependencies = module_invoke_all('entity_dependencies', $entity, $this->entityType);
+      // When $entity does not exist (may be the case with references
+      // to deleted taxonomy terms), skip and remove it from $this->entites.
+      if (!$entity) {
+        watchdog('entity_dependency', "Missing entity %id of type %type", array('%id' => $current['id'], '%type' => $current['type']), WATCHDOG_WARNING);
+        // We can't do anything useful with the no-existent entity,
+        // therfore we just remove it.
+        array_shift($this->entities);
+        return FALSE;
+      }
+
+      $this->dependencies = module_invoke_all('entity_dependencies', $entity, $current['type']);
       //$this->belongings = module_invoke_all('entity_belongings', $entity, $this->entityType);
 
       // Don't add dependencies that already were checked.
-      foreach ($this->dependencies as $entity_type => $dependencies) {
-        foreach ($dependencies as $entity_id) {
-          if (isset($this->checked[$entity_type][$entity_id])) {
-            unset($this->dependencies[$entity_type][$entity_id]);
-          }
-          else {
-            $this->origins[$entity_type][$entity_id] = array(
-              'type' => $this->entityType,
-              'id' => $this->entityId,
-            );
-          }
+      foreach ($this->dependencies as $key => $dependency) {
+        if (($dependency['type'] == $current['type'] && $dependency['id'] == $current['id'])
+          || isset($this->checked[$dependency['type']][$dependency['id']])) {
+
+          unset($this->dependencies[$key]);
+        }
+        else {
+          $this->causes[$dependency['type']][$dependency['id']] = $current;
         }
       }
-      // TODO: Do the same for belongings.
 
       // Let other modules have their say.
-      drupal_alter('entity_dependencies', $this->dependencies, $entity, $this->entityType);
-      //drupal_alter('entity_belongings', $this->belongings, $entity, $this->entityType);
+      drupal_alter('entity_dependencies', $this->dependencies, $entity, $current['type']);
 
       // Now mark this as checked.
-      $this->checked[$this->entityType][$this->entityId] = TRUE;
+      $this->checked[$current['type']][$current['id']] = TRUE;
 
       if (!empty($this->dependencies)) {
         return TRUE;
@@ -158,21 +198,14 @@ class EntityDependencyIterator implements RecursiveIterator {
   public function getChildrenEntities() {
     $entities = array();
     $current = current($this->entities);
-    if (is_array($current)) {
-      $entities = $current;
-    }
-    if (!empty($this->dependencies) || !empty($this->belongings)) {
+
+    if (!empty($this->dependencies)) {
       $entities = $this->dependencies;
       // In an iterator, having children means that the current key itself
       // isn't a part of the entities. However, we need that entity.. So we add
       // the parent as a part of the entities. And since children always should
       // go first, we add the parent last.
-      $entities[$this->entityType][] = $this->entityId;
-
-      // TODO: Add belongings to the array.
-      //foreach ($this->belongings as $entity_type => $entity_id) {
-      //  $entities[$entity_type][] = $entity_id;
-      //}
+      $entities[] = $current;
     }
     return $entities;
   }
@@ -183,9 +216,7 @@ class EntityDependencyIterator implements RecursiveIterator {
    * @return EntityDependencyIterator
    */
   public function getChildren() {
-    $iterator = new EntityDependencyIterator($this->getChildrenEntities(), $this);
-    $iterator->entityType = $this->entityType;
-    return $iterator;
+    return new EntityDependencyIterator($this->getChildrenEntities(), $this);
   }
 
   /**
@@ -196,18 +227,21 @@ class EntityDependencyIterator implements RecursiveIterator {
    */
   public function current() {
     $current = current($this->entities);
-    if (is_array($current)) {
-      return $current;
-    }
     // Load the current entity.
-    $entity = reset(entity_load($this->entityType, array($this->entityId)));
+    $entities = entity_load($current['type'], array($current['id']));
+    $entity = reset($entities);
     // Add necessary metadata to the entity.
+    $cause = FALSE;
+    if (!empty($this->causes[$current['type']][$current['id']])) {
+      $cause = $this->causes[$current['type']][$current['id']]['type'] . '/' . $this->causes[$current['type']][$current['id']]['id'];
+    }
     $entity->__metadata = array(
-      'type' => $this->entityType,
-      'uri' => $this->entityType . '/' . $this->entityId,
+      'type' => $current['type'],
+      'uri' => $current['type'] . '/' . $current['id'],
+      'cause' => $cause,
     );
     // Now mark this as traversed.
-    $this->traversed[$this->entityType][$this->entityId] = TRUE;
+    $this->traversed[$current['type']][$current['id']] = TRUE;
     return $entity;
   }
 
@@ -222,7 +256,9 @@ class EntityDependencyIterator implements RecursiveIterator {
    * Moves the current position to the next element.
    */
   public function next() {
-    return next($this->entities);
+    do {
+      $current = next($this->entities);
+    } while (!empty($current) && isset($this->traversed[$current['type']][$current['id']]));
   }
 
   /**
@@ -239,12 +275,8 @@ class EntityDependencyIterator implements RecursiveIterator {
    */
   public function valid() {
     $current = current($this->entities);
-    if (!empty($current) && is_array($current)) {
-      $this->entityType = key($this->entities);
-      return TRUE;
-    }
-    elseif (!empty($current) && is_numeric($current) && isset($this->entityType) && !isset($this->traversed[$this->entityType][$current])) {
-      $this->entityId = $current;
+    if (!empty($current) && is_array($current) && isset($current['type']) && isset($current['id'])  && !isset($this->traversed[$current['type']][$current['id']])) {
+      $this->current = $current;
       return TRUE;
     }
     return FALSE;

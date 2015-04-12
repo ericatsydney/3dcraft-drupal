@@ -11,12 +11,16 @@
  * Implements hook_help().
  */
 function simple_subscription_help($path, $arg) {
+  $output = '';
+
   switch ($path) {
     case 'admin/help#simple_subscription':
-      $output = '<p>' . t('This module provides a block with a simple newsletter subscription form, i.e., an text input field (validated as an e-mail address) and a submit button. In the <a href="@block_configuration">block configuration page</a> you can add a header, a label and a footer to the form, as well as a small text appearing in the input field(usually used as a replacement to the field label. You can also choose a path to redirect the user after a successful submission.', array('@block_configuration' => '/admin/structure/block/configure/simple_subscription/0')) . '</p>';
+      $output = '<p>' . t('This module provides a block with a simple newsletter subscription form, i.e., an text input field (validated as an e-mail address) and a submit button. In the <a href="@block_configuration">block configuration page</a> you can add a header, a label and a footer to the form, as well as a small text appearing in the input field(usually used as a replacement to the field label. You can also choose a path to redirect the user after a successful submission.', array('@block_configuration' => url('admin/structure/block/configure/simple_subscription/0'))) . '</p>';
       $output .= '<p>' . t("Simple subscription integrates with the trigger module to send site administrators (or anybody else) the submitted. It can be used with only the core action module for notifications, but the <a href='@token_url'>Token module</a> should also be installed for complete costumisation of the notification e-mails.", array('@token_url' => 'http://drupal.org/project/token')) . '</p>';
-      return $output;
+      break;
   }
+
+  return $output;
 }
 
 
@@ -308,7 +312,7 @@ function simple_subscription_form() {
   if (!empty($config['form_header'])) {
     $form['header'] = array(
       '#prefix'   =>  '<div class="simple_subscription_header">',
-      '#markup'  => token_replace($config['form_header']),
+      '#markup'  => filter_xss(token_replace($config['form_header'])),
       '#suffix'   =>  '</div>',
     );
   }
@@ -343,7 +347,7 @@ function simple_subscription_form() {
   if (!empty($config['form_footer'])) {
     $form['footer'] = array(
       '#prefix'   =>  '<div class="simple_subscription_footer">',
-      '#markup'  => token_replace(trim($config['form_footer'])),
+      '#markup'  => filter_xss(token_replace(trim($config['form_footer']))),
       '#suffix'   =>  '</div>',
     );
   }
@@ -408,7 +412,7 @@ function simple_subscription_form_submit($form, &$form_state) {
     /*
      * TODO check sanitation on this.
      */
-    drupal_set_message(token_replace($config['success_message'], $data));
+    drupal_set_message(filter_xss(token_replace($config['success_message'], $data)));
   }
 
   $aids = trigger_get_assigned_actions('simple_subscription_submit');

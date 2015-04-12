@@ -19,8 +19,7 @@
 
   <?php if ($navigation): ?>
     <!-- Carousel navigation -->
-    <a class="carousel-control left" href="#views-bootstrap-carousel-<?php print $id ?>" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-    <a class="carousel-control right" href="#views-bootstrap-carousel-<?php print $id ?>" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    <a class="carousel-control left" href="#views-bootstrap-carousel-<?php print $id ?>" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#views-bootstrap-carousel-<?php print $id ?>" data-slide="next">&rsaquo;</a>
   <?php endif ?>
 </div>
-  

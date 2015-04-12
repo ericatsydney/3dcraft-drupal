@@ -28,6 +28,17 @@ function node_entity_dependencies($entity, $entity_type) {
 /**
  * Implements hook_entity_dependenies().
  */
+function user_entity_dependencies($entity, $entity_type) {
+  if ($entity_type == 'user' && variable_get('user_pictures', 0) && !empty($entity->picture)) {
+    $dependencies = array();
+    $dependencies[] = array('type' => 'file', 'id' => $entity->picture->fid);
+    return $dependencies;
+  }
+}
+
+/**
+ * Implements hook_entity_dependenies().
+ */
 function comment_entity_dependencies($entity, $entity_type) {
   if ($entity_type == 'comment') {
     $dependencies = array();
@@ -38,15 +49,26 @@ function comment_entity_dependencies($entity, $entity_type) {
 }
 
 /**
- * Implements hook_entity_dependencies()
+ * Implements hook_entity_dependencies().
  */
 function taxonomy_entity_dependencies($entity, $entity_type) {
   if ($entity_type == 'taxonomy_term') {
     $dependencies = array();
     $terms = taxonomy_get_parents($entity->tid);
     foreach ($terms as $tid => $term) {
-      $dependencies['taxonomy_term'][] = $tid;
+      $dependencies[] = array('type' => 'taxonomy_term', 'id' => $tid);
     }
+    return $dependencies;
+  }
+}
+
+/**
+ * Implements hook_entity_dependenies().
+ */
+function file_entity_dependencies($entity, $entity_type) {
+  if ($entity_type == 'file') {
+    $dependencies = array();
+    entity_dependency_add($dependencies, $entity, 'user', 'uid');
     return $dependencies;
   }
 }
@@ -56,7 +78,7 @@ function taxonomy_entity_dependencies($entity, $entity_type) {
  */
 function field_entity_dependencies($entity, $entity_type) {
   $dependencies = array();
-  list(,, $bundle_name) = entity_extract_ids($entity_type, $entity);
+  list(, , $bundle_name) = entity_extract_ids($entity_type, $entity);
   $instances = field_info_instances($entity_type, $bundle_name);
 
   foreach ($instances as $field_name => $instance) {
@@ -67,11 +89,7 @@ function field_entity_dependencies($entity, $entity_type) {
       drupal_alter('field_entity_dependencies', $field_dependencies, $entity_type, $entity, $field, $instance, $langcode, $items);
 
       if (!empty($field_dependencies)) {
-        foreach ($field_dependencies as $entity_type => $entity_ids) {
-          foreach ($entity_ids as $entity_id) {
-            $dependencies[$entity_type][] = $entity_id;
-          }
-        }
+        $dependencies = array_merge_recursive($dependencies, $field_dependencies);
       }
     }
   }
@@ -111,6 +129,13 @@ function file_field_entity_dependencies($entity_type, $entity, $field, $instance
 /**
  * Implements hook_field_entity_dependencies().
  */
+function image_field_entity_dependencies($entity_type, $entity, $field, $instance, $langcode, $items) {
+  return file_field_entity_dependencies($entity_type, $entity, $field, $instance, $langcode, $items);
+}
+
+/**
+ * Implements hook_field_entity_dependencies().
+ */
 function node_reference_field_entity_dependencies($entity_type, $entity, $field, $instance, $langcode, $items) {
   $dependencies = array();
   entity_dependency_add($dependencies, $items, 'node', 'nid');
@@ -131,10 +156,16 @@ function user_reference_field_entity_dependencies($entity_type, $entity, $field,
  */
 function entityreference_field_entity_dependencies($entity_type, $entity, $field, $instance, $langcode, $items) {
   $dependencies = array();
-  foreach ($items as $item) {
-    $info = entity_get_info($item['target_type']);
-    entity_dependency_add($dependencies, $item, $item['target_type'], $info['entity keys']['id']);
-  }
+  entity_dependency_add($dependencies, $items, $field['settings']['target_type'], 'target_id');
+  return $dependencies;
+}
+
+/**
+ * Implements hook_field_entity_dependencies().
+ */
+function field_collection_field_entity_dependencies($entity_type, $entity, $field, $instance, $langcode, $items) {
+  $dependencies = array();
+  entity_dependency_add($dependencies, $items, 'field_collection_item', 'value');
   return $dependencies;
 }
 
